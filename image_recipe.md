@@ -1,18 +1,30 @@
 # Recipe for creating the Picroft IMG
 
-These are the steps followed to create the base image for Picroft on Raspbian Buster.  This was performed on a Raspberry Pi 3B+ or Pi 4
+These are the steps followed to create the base image for Picroft on PI OS.  This was performed on a Raspberry Pi 4
 
 NOTE: At startup Picroft will automatically update itself to the latest version of released software, scripts and Skills.
 
 
-### Start with the official Raspbian Image
-* Download and burn [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite_latest).
-  <br>_Last used 2019-09-26 version_
+### Start with the official Raspberry Pi OS Image
+* Download and burn [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit).
+  <br>_Last used 2022-08-24 version_
+* Use the Raspberry Pi Imager
+  - Select the image you downloaded from above
+  - Select the SD card
+  - click cog at the bottom right corner
+    - Click Enable SSH
+    - Set the password
+    - Click Configure wireless LAN (if you are on wifi it should all be filled in for you)
+      - change country for the wifi
+    - Click Set local settings (make sure it is set for your area)
 * Install into Raspberry Pi and boot
   - login: pi
-  - password: raspberry
-
-### General configuration
+  - password: what you set the password to from above step
+### Configure USB Audio
+  - sudo apt update
+  - sudo apt upgrade
+  - 
+### General configuration (If the above steps where fallowed these are not needed)
   - ```sudo raspi-config```
   - 1 Change User Password
       - Enter and verify ```mycroft```
@@ -50,7 +62,7 @@ NOTE: At startup Picroft will automatically update itself to the latest version 
 ### Connect to the network
 * Either plug in Ethernet or
 
-  __or__
+  __or__ (If the above steps where fallowed these are not needed)
 * Guided wifi setup
   * ```sudo raspi-config```
     - 2 Network Options
@@ -70,7 +82,7 @@ NOTE: At startup Picroft will automatically update itself to the latest version 
 
 ## Install Picroft scripts
 * cd ~
-* wget -N https://rawgit.com/MycroftAI/enclosure-picroft/buster/home/pi/update.sh
+* wget -N https://rawgit.com/MycroftAI/enclosure-picroft/buster/home/pi/update.sh (Pi OS uses pulsaudio)
 * bash update.sh
 
 **The update.sh script will perform all of the following steps in this section...**
