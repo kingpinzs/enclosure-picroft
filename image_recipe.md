@@ -23,7 +23,21 @@ NOTE: At startup Picroft will automatically update itself to the latest version 
 ### Configure USB Audio
   - sudo apt update
   - sudo apt upgrade
-  - 
+
+
+
+
+
+speaker-test -c2 -twav -l7
+
+
+
+
+
+
+
+
+
 ### General configuration (If the above steps where fallowed these are not needed)
   - ```sudo raspi-config```
   - 1 Change User Password
